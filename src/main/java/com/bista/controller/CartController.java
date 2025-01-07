@@ -20,31 +20,35 @@ import com.bista.service.CartService;
 @CrossOrigin("http://localhost:4200")
 public class CartController {
 
-	@Autowired
-	private CartService cartService;
+
+	private final CartService cartService;
+
+	public CartController(CartService cartService) {
+		this.cartService = cartService;
+	}
 
 	@GetMapping("/greeting")
-	public ResponseEntity<String> gretting() {
+	public ResponseEntity<String> greeting() {
 
-		return new ResponseEntity<String>("Cart service is upon running", HttpStatus.OK);
+		return new ResponseEntity<>("Cart service is upon running", HttpStatus.OK);
 	}
 
 	@PostMapping("/assignCart")
 	public ResponseEntity<String> assignCartToUser(@RequestParam("email") String email) {
 		cartService.assignCartToUser(email);
-		return new ResponseEntity<String>("Cart has been assigned to user.", HttpStatus.CREATED);
+		return new ResponseEntity<>("Cart has been assigned to user.", HttpStatus.CREATED);
 	}
 
 	@GetMapping("/getUserCart")
 	public ResponseEntity<Cart> getUserCart(@RequestParam("email") String email) {
 		Cart userCart = cartService.getUserCart(email);
-		return new ResponseEntity<Cart>(userCart, HttpStatus.OK);
+		return new ResponseEntity<>(userCart, HttpStatus.OK);
 	}
 
 	@PostMapping("/addProduct")
 	public ResponseEntity<Cart> addProductToCart(@RequestBody Product product, @RequestParam("email") String email) {
 		Cart userCart = cartService.addToCart(product, email);
-		return new ResponseEntity<Cart>(userCart, HttpStatus.CREATED);
+		return new ResponseEntity<>(userCart, HttpStatus.CREATED);
 	}
 
 	@PostMapping("/removeProduct")
@@ -52,7 +56,7 @@ public class CartController {
 			@RequestParam("email") String email) {
 		Cart userCart = cartService.removeProductFromCart(product, email);
 
-		return new ResponseEntity<Cart>(userCart, HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(userCart, HttpStatus.NO_CONTENT);
 	}
 
 	@PostMapping("/changeQuantity")
@@ -66,7 +70,7 @@ public class CartController {
 	public ResponseEntity<Cart> emptyCart(@RequestParam("email") String email) {
 		Cart userCart = cartService.emptyCart(email);
 
-		return new ResponseEntity<Cart>(userCart, HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(userCart, HttpStatus.NO_CONTENT);
 	}
 
 }

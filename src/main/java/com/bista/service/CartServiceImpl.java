@@ -14,8 +14,12 @@ import com.bista.repository.CartRepository;
 @Service
 public class CartServiceImpl implements CartService{
 
-	@Autowired
-	private CartRepository cartRepository;
+
+	private final CartRepository cartRepository;
+
+	public CartServiceImpl(CartRepository cartRepository) {
+		this.cartRepository = cartRepository;
+	}
 
 	@Override
 	public Cart addToCart(Product product, String email) {
@@ -73,7 +77,9 @@ public class CartServiceImpl implements CartService{
 	@Override
 	public void assignCartToUser(String email) {
 		List<Product> products = new ArrayList<>();
-		Cart userCart = new Cart(email, products);
+		Cart userCart = new Cart();
+		userCart.setEmail(email);
+		userCart.setProducts(products);
 		cartRepository.save(userCart);
 		
 	}
