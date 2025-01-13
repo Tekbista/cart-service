@@ -1,14 +1,15 @@
 package com.bista.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bista.entity.Cart;
@@ -34,43 +35,54 @@ public class CartController {
 	}
 
 	@PostMapping("/assignCart")
-	public ResponseEntity<String> assignCartToUser(@RequestParam("email") String email) {
+	public ResponseEntity<String> assignCartToUser() {
+		String email = getUserEmail();
 		cartService.assignCartToUser(email);
 		return new ResponseEntity<>("Cart has been assigned to user.", HttpStatus.CREATED);
 	}
 
 	@GetMapping("/getUserCart")
-	public ResponseEntity<Cart> getUserCart(@RequestParam("email") String email) {
+	public ResponseEntity<Cart> getUserCart() {
+		String email = getUserEmail();
 		Cart userCart = cartService.getUserCart(email);
 		return new ResponseEntity<>(userCart, HttpStatus.OK);
 	}
 
 	@PostMapping("/addProduct")
-	public ResponseEntity<Cart> addProductToCart(@RequestBody Product product, @RequestParam("email") String email) {
+	public ResponseEntity<Cart> addProductToCart(@RequestBody Product product) {
+		String email = getUserEmail();
 		Cart userCart = cartService.addToCart(product, email);
 		return new ResponseEntity<>(userCart, HttpStatus.CREATED);
 	}
 
 	@PostMapping("/removeProduct")
-	public ResponseEntity<Cart> removeProductFromCart(@RequestBody Product product,
-			@RequestParam("email") String email) {
+	public ResponseEntity<Cart> removeProductFromCart(@RequestBody Product product) {
+		String email = getUserEmail();
 		Cart userCart = cartService.removeProductFromCart(product, email);
 
 		return new ResponseEntity<>(userCart, HttpStatus.NO_CONTENT);
 	}
 
 	@PostMapping("/changeQuantity")
-	public ResponseEntity<Cart> changeProductQuantity(@RequestBody Product product,
-			@RequestParam("email") String email) {
+	public ResponseEntity<Cart> changeProductQuantity(@RequestBody Product product) {
+		String email = getUserEmail();
 		Cart userCart = cartService.changeItemQuantity(product, email);
 		return ResponseEntity.ok(userCart);
 	}
 
 	@PostMapping("/emptyCart")
-	public ResponseEntity<Cart> emptyCart(@RequestParam("email") String email) {
+	public ResponseEntity<Cart> emptyCart() {
+		String email = getUserEmail();
 		Cart userCart = cartService.emptyCart(email);
 
 		return new ResponseEntity<>(userCart, HttpStatus.NO_CONTENT);
+	}
+
+	private String getUserEmail(){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Jwt jwt = (Jwt) authentication.getPrincipal();
+
+		return jwt.getClaims().get("email").toString();
 	}
 
 }

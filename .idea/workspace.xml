@@ -5,44 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5d1645a-6b9c-4910-9ebc-9381cf7b4f3a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.factorypath" beforeDir="false" afterPath="$PROJECT_DIR$/.factorypath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bista/config/KeycloakRoleConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bista/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bista/filter/CsrfCookieFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/config/DbConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/config/PropertiesConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/entity/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/entity/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/repository/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bista/service/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bista/service/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.bista/cart-service/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.bista/cart-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/CartServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/CartServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/config/DbConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/config/PropertiesConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bista/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/controller/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/entity/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/entity/Cart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/entity/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/entity/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/entity/Image.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/entity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/exception/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/exception/ResourceNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/exception/ResourceNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/repository/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/repository/CartRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/service/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/service/CartService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bista/service/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bista/service/CartServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bista/CartServiceApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bista/CartServiceApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,6 +93,10 @@
       <workItem from="1736262441021" duration="1486000" />
       <workItem from="1736263938049" duration="3034000" />
       <workItem from="1736267071905" duration="2424000" />
+      <workItem from="1736272226583" duration="222000" />
+      <workItem from="1736276505821" duration="40000" />
+      <workItem from="1736604797192" duration="2353000" />
+      <workItem from="1736620362407" duration="1852000" />
     </task>
     <servers />
   </component>
